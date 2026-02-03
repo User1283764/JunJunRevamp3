@@ -1,5 +1,6 @@
 /* ==========================
-   STORMY MIST JUNGLE – SAFE
+   STORMY MIST JUNGLE THEME
+   Safe Edited Version
    ========================== */
 
 /* ---------- Font ---------- */
@@ -7,68 +8,44 @@
 
 /* ---------- Variables ---------- */
 :root {
+    /* Text Colors */
     --fc1: #e6eef2;
     --fc2: #9fc3d6;
+    --fc3: #b6d1de;
 
-    --bgMain: rgba(5, 25, 30, 0.82);
-    --bgPanel: rgba(8, 30, 36, 0.85);
+    /* Panel Colors */
+    --bgColor: rgba(6, 28, 34, 0.8);   /* Darker teal, semi-transparent */
+    --pc1: rgba(8, 16, 22, 0.9);
+    --pc2: rgba(8, 16, 22, 0.9);
+    --pc3: rgba(18, 30, 38, 0.9);
+    --pc4: rgba(12, 22, 28, 0.9);
 
-    --borderColor: rgba(120, 170, 190, 0.25);
+    /* Tables */
+    --sc1: rgba(12, 22, 28, 0.95);
+    --sc3: rgba(18, 30, 38, 0.9);
+    --sc4: rgba(12, 22, 28, 0.9);
 
-    --button: #163a44;
-    --buttonHover: #2c5f6f;
+    /* Borders */
+    --borderColor: rgba(120, 160, 180, 0.25);
+
+    /* Buttons */
+    --button1: #1a2f3a;
+    --button2: #244552;
+    --buttonHover: #3b6f86;
+    --buttonText: #eaf4f8;
 }
 
 /* ---------- Background ---------- */
-html {
-    background: #000 url('https://user1283764.github.io/JunJunRevamp2/vertical-shot-tree-with-dark-cloud.jpg')
-    no-repeat center top fixed !important;
+html, body {
+    background-color: #000 !important;
+    background-image: url('https://user1283764.github.io/JunJunRevamp2/vertical-shot-tree-with-dark-cloud.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
     background-size: cover !important;
-    font-family: 'Quicksand', Arial, sans-serif;
+    background-attachment: fixed !important;
+    min-height: 100vh;
     color: var(--fc1);
-}
-
-/* ---------- Mist Overlay ---------- */
-html::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 30% 20%, rgba(160, 200, 215, 0.06), transparent 45%),
-        radial-gradient(circle at 70% 60%, rgba(120, 180, 200, 0.05), transparent 50%),
-        rgba(0, 0, 0, 0.4);
-    z-index: 0;
-}
-
-/* ---------- Soft Rain (FIXED) ---------- */
-html::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        repeating-linear-gradient(
-            110deg,
-            rgba(200, 230, 240, 0.025) 0px,
-            rgba(200, 230, 240, 0.025) 1px,
-            transparent 1px,
-            transparent 10px
-        );
-    animation: rain 18s linear infinite;
-    z-index: 0;
-}
-
-@keyframes rain {
-    from { background-position: 0 0; }
-    to { background-position: -150px 500px; }
-}
-
-/* ---------- Main Den Rectangle ---------- */
-.container {
-    background-color: var(--bgMain) !important;
-    border: 1px solid var(--borderColor);
-    border-radius: 10px;
+    font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* ---------- Panels ---------- */
@@ -77,31 +54,100 @@ html::after {
 .alert,
 .chat-box,
 .comment-box {
-    background-color: var(--bgPanel) !important;
+    background-color: var(--bgColor);
+    color: var(--fc1);
     border: 1px solid var(--borderColor);
     border-radius: 8px;
 }
 
-/* ---------- Buttons ---------- */
-button,
-.btn {
-    background: var(--button);
-    color: #eaf4f8;
-    border: 1px solid var(--borderColor);
-    border-radius: 6px;
+/* ---------- Main Den Rectangle ---------- */
+.container {
+    background-color: rgba(6, 28, 34, 0.82) !important;
+    border: 1px solid rgba(120, 160, 180, 0.3);
+    border-radius: 10px;
 }
 
-button:hover,
-.btn:hover {
+/* Topbar & Navbar */
+.topbar { background-color: var(--pc1); }
+.navbar { background-color: var(--pc2); }
+
+/* Hover depth */
+.panel:hover {
+    background-color: var(--pc3);
+}
+
+/* ---------- Buttons ---------- */
+button, .btn {
+    background: var(--button1);
+    color: var(--buttonText);
+    border: 1px solid var(--borderColor);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover, .btn:hover {
     background: var(--buttonHover);
 }
 
 /* ---------- Lioden Corner Button ---------- */
+#lioden-nav,
 #lioden-nav a {
     background: linear-gradient(135deg, #1a3a45, #102830) !important;
-    border-radius: 10px;
     border: 1px solid rgba(140, 190, 210, 0.35);
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+#lioden-nav {
+    margin: 8px;
+}
+
+#lioden-nav a:hover {
+    background: linear-gradient(135deg, #2c5c6a, #163a45) !important;
+}
+
+/* ---------- Tables ---------- */
+.lion-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--fc1);
+}
+
+.lion-table th {
+    background-color: var(--sc1);
+    color: var(--fc2);
+}
+
+.lion-table td {
+    background-color: var(--sc4);
+    padding: 6px 10px;
+}
+
+.lion-table tr:nth-child(odd) td {
+    background-color: var(--sc3);
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+    background-color: var(--pc4);
+    border-left: 4px solid #6fa7c2;
+}
+
+/* ---------- Chat ---------- */
+.chat-box {
+    background-color: var(--bgColor);
+    border: 1px solid var(--borderColor);
+}
+
+.chat-box .message {
+    border-bottom: 1px solid var(--borderColor);
+}
+
+/* ---------- Comment Boxes ---------- */
+.comment-box {
+    background-color: var(--pc4);
 }
 
 /* ---------- Text ---------- */
@@ -117,4 +163,15 @@ a {
 a:hover {
     color: #cfe9f5;
 }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+    .panel, .chat-box, .lion-table {
+        font-size: 0.95rem;
+    }
+}
+
 
