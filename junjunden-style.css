@@ -1,6 +1,5 @@
 /* ==========================
-   STORMY MIST JUNGLE THEME
-   Full Integrated Version
+   STORMY MIST JUNGLE – SAFE
    ========================== */
 
 /* ---------- Font ---------- */
@@ -8,185 +7,101 @@
 
 /* ---------- Variables ---------- */
 :root {
-    /* Text Colors */
     --fc1: #e6eef2;
     --fc2: #9fc3d6;
-    --fc3: #b6d1de;
 
-    /* Panel Colors */
-    --bgColor: rgba(6, 28, 34, 0.72);
-    --pc1: rgba(8, 20, 26, 0.9);
-    --pc2: rgba(8, 20, 26, 0.9);
-    --pc3: rgba(18, 40, 46, 0.9);
-    --pc4: rgba(10, 32, 38, 0.9);
+    --bgMain: rgba(5, 25, 30, 0.82);
+    --bgPanel: rgba(8, 30, 36, 0.85);
 
-    /* Tables */
-    --sc1: rgba(10, 32, 38, 0.95);
-    --sc3: rgba(18, 40, 46, 0.9);
-    --sc4: rgba(10, 32, 38, 0.9);
+    --borderColor: rgba(120, 170, 190, 0.25);
 
-    /* Borders */
-    --borderColor: rgba(120, 170, 190, 0.3);
-
-    /* Buttons */
-    --button1: #14323c;
-    --button2: #1f4b59;
-    --buttonHover: #2f6b7d;
-    --buttonText: #eaf4f8;
+    --button: #163a44;
+    --buttonHover: #2c5f6f;
 }
 
 /* ---------- Background ---------- */
-html, body {
-    background-color: #000 !important;
-    background-image: url('https://user1283764.github.io/JunJunRevamp2/vertical-shot-tree-with-dark-cloud.jpg') !important;
-    background-repeat: no-repeat !important;
-    background-position: center top !important;
+html {
+    background: #000 url('https://user1283764.github.io/JunJunRevamp2/vertical-shot-tree-with-dark-cloud.jpg')
+    no-repeat center top fixed !important;
     background-size: cover !important;
-    background-attachment: fixed !important;
-    min-height: 100vh;
+    font-family: 'Quicksand', Arial, sans-serif;
     color: var(--fc1);
-    font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* ---------- Mist Overlay ---------- */
-body::before {
+html::before {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(circle at 30% 20%, rgba(180, 210, 225, 0.08), transparent 45%),
-        radial-gradient(circle at 70% 60%, rgba(140, 190, 215, 0.07), transparent 50%),
-        rgba(0, 0, 0, 0.35);
+        radial-gradient(circle at 30% 20%, rgba(160, 200, 215, 0.06), transparent 45%),
+        radial-gradient(circle at 70% 60%, rgba(120, 180, 200, 0.05), transparent 50%),
+        rgba(0, 0, 0, 0.4);
     z-index: 0;
 }
 
-/* ---------- Rain Overlay ---------- */
-body::after {
+/* ---------- Soft Rain (FIXED) ---------- */
+html::after {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     background-image:
         repeating-linear-gradient(
-            115deg,
-            rgba(200, 230, 240, 0.05) 0px,
-            rgba(200, 230, 240, 0.05) 1px,
+            110deg,
+            rgba(200, 230, 240, 0.025) 0px,
+            rgba(200, 230, 240, 0.025) 1px,
             transparent 1px,
-            transparent 6px
+            transparent 10px
         );
-    animation: rainFall 12s linear infinite;
+    animation: rain 18s linear infinite;
     z-index: 0;
 }
 
-@keyframes rainFall {
-    0% { background-position: 0 0; }
-    100% { background-position: -200px 600px; }
+@keyframes rain {
+    from { background-position: 0 0; }
+    to { background-position: -150px 500px; }
 }
 
-/* Keep content above overlays */
-body * {
-    position: relative;
-    z-index: 1;
-}
-
-/* ---------- Main Content Rectangle ---------- */
-.container, .content {
-    background-color: rgba(6, 28, 34, 0.75);
-    border: 1px solid rgba(120, 170, 190, 0.3);
-    backdrop-filter: blur(2px);
+/* ---------- Main Den Rectangle ---------- */
+.container {
+    background-color: var(--bgMain) !important;
+    border: 1px solid var(--borderColor);
     border-radius: 10px;
 }
 
 /* ---------- Panels ---------- */
-.panel, .panel-inner, .alert, .chat-box, .comment-box {
-    background-color: var(--bgColor);
-    color: var(--fc1);
+.panel,
+.panel-inner,
+.alert,
+.chat-box,
+.comment-box {
+    background-color: var(--bgPanel) !important;
     border: 1px solid var(--borderColor);
     border-radius: 8px;
 }
 
-/* Topbar & Navbar */
-.topbar { background-color: var(--pc1); }
-.navbar { background-color: var(--pc2); }
-
-/* Hover depth */
-.panel:hover {
-    background-color: var(--pc3);
-}
-
 /* ---------- Buttons ---------- */
-button, .btn {
-    background: var(--button1);
-    color: var(--buttonText);
+button,
+.btn {
+    background: var(--button);
+    color: #eaf4f8;
     border: 1px solid var(--borderColor);
     border-radius: 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: background 0.2s ease;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
     background: var(--buttonHover);
 }
 
 /* ---------- Lioden Corner Button ---------- */
-#lioden-nav,
 #lioden-nav a {
     background: linear-gradient(135deg, #1a3a45, #102830) !important;
-    border: 1px solid rgba(140, 190, 210, 0.35);
     border-radius: 10px;
+    border: 1px solid rgba(140, 190, 210, 0.35);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-
-#lioden-nav {
-    margin: 8px;
-}
-
-#lioden-nav a:hover {
-    background: linear-gradient(135deg, #2c5c6a, #163a45) !important;
-}
-
-/* ---------- Tables ---------- */
-.lion-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: var(--fc1);
-}
-
-.lion-table th {
-    background-color: var(--sc1);
-    color: var(--fc2);
-}
-
-.lion-table td {
-    background-color: var(--sc4);
-    padding: 6px 10px;
-}
-
-.lion-table tr:nth-child(odd) td {
-    background-color: var(--sc3);
-}
-
-/* ---------- Alerts ---------- */
-.alert {
-    background-color: var(--pc4);
-    border-left: 4px solid #6fa7c2;
-}
-
-/* ---------- Chat ---------- */
-.chat-box {
-    background-color: var(--bgColor);
-    border: 1px solid var(--borderColor);
-}
-
-.chat-box .message {
-    border-bottom: 1px solid var(--borderColor);
-}
-
-/* ---------- Comment Boxes ---------- */
-.comment-box {
-    background-color: var(--pc4);
 }
 
 /* ---------- Text ---------- */
@@ -201,16 +116,5 @@ a {
 
 a:hover {
     color: #cfe9f5;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-    }
-
-    .panel, .chat-box, .lion-table {
-        font-size: 0.95rem;
-    }
 }
 
